@@ -4,15 +4,11 @@ import sys
 resultado = 0
 posi_atual = 0
 
-# tenta pegar da linha de comando, se não conseguir, usa valores padrão
-if len(sys.argv) < 4:
-    spec_file = "especificacao.json"
-    input_file = "entrada.txt"
-    output_file = "saida.txt"
-else:
-    spec_file = sys.argv[1]
-    input_file = sys.argv[2]
-    output_file = sys.argv[3]
+
+# arquivos vindos da linha de comando
+spec_file = "especificacao.json"
+input_file = "entrada1.in"
+output_file = "saida.txt"
 
 with open(spec_file, "r", encoding="utf-8") as instrucao:
     especific = load(instrucao)
@@ -58,7 +54,9 @@ while True:
 
 # grava fita final
 with open(output_file, "w", encoding="utf-8") as saida:
+
     saida.write("".join(problema).rstrip(especific["white"]) + "\n")
 
 # imprime 1 ou 0 no terminal
 print(resultado)
+print(problema)
